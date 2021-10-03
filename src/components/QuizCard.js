@@ -9,7 +9,7 @@ function QuizCard({quiz}) {
     return (
         <div>
            <h1>{quiz.name}</h1>
-           <Link style={navStyle} to={`/quiz/${quiz.id}`}>Attempt</Link> 
+           <Link style={navStyle} to={`/quizzes/${quiz.id}`}>Attempt</Link> 
         </div>
     )
 }
