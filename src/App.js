@@ -23,7 +23,7 @@ function App() {
           <Route path="/login"><LogInPage setUser={setUser} baseURL={baseURL} /></Route>
           <Route path="/signup"><NewUserFrom baseURL={baseURL} /></Route>
           <Route path="/profile"><ProfilePage currentUser={user} setCurrentUser={setUser} baseURL={baseURL} /></Route>
-          <Route path="/quizzes" exact><QuizIndexPage baseURL={baseURL} /></Route>
+          <Route path="/quizzes" exact><QuizIndexPage baseURL={baseURL} user={user} /></Route>
           <Route path="/quizzes/:id"><Attempt baseURL={baseURL} /></Route>
         </Switch>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-function QuizCard({quiz}) {
+function QuizCard({quiz, user}) {
     const navStyle = {
         color: 'blue',
         "fontWeight": 'bold'
@@ -9,7 +9,7 @@ function QuizCard({quiz}) {
     return (
         <div>
            <h1>{quiz.name}</h1>
-           <Link style={navStyle} to={`/quizzes/${quiz.id}`}>Attempt</Link> 
+           {user ? <Link style={navStyle} to={`/quizzes/${quiz.id}`}>Attempt</Link> : <p>Log in to attempt quiz</p>} 
         </div>
     )
 }

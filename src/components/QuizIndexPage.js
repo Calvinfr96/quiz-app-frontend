@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import QuizCard from './QuizCard'
 
-function QuizIndexPage({baseURL}) {
+function QuizIndexPage({baseURL, user}) {
     const [quizzes, setQuizzes] = useState([])
 
     const fetchQuizzes = async () => {
@@ -15,7 +15,7 @@ function QuizIndexPage({baseURL}) {
     }, [])
 
     const quizCards = quizzes.map((quiz) => {
-        return <QuizCard key={quiz.id} quiz={quiz} />
+        return <QuizCard key={quiz.id} quiz={quiz} user={user} />
     })
 
     return (
