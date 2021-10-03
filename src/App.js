@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 import QuizIndexPage from './components/QuizIndexPage';
 
 function App() {
+  const baseURL = "http://127.0.0.1:3000"
   return (
     <Router>
       <div className="App">
@@ -13,7 +14,7 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/" exact><HomePage /></Route>
-          <Route path="/quizzes"><QuizIndexPage /></Route>
+          <Route path="/quizzes"><QuizIndexPage baseURL={baseURL} /></Route>
         </Switch>
       </div>
     </Router>
