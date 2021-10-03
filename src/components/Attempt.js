@@ -51,9 +51,12 @@ function Attempt({baseURL, user}) {
         fetch(`${baseURL}/attempts`, configObj)
     }
 
-    if (finished) {
-        submitAttempt()
-    }
+    useEffect(() => {
+        if (finished) {
+            submitAttempt()
+        }
+    }, [finished])
+
 
     return (
         <div>
