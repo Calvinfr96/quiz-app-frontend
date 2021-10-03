@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import Question from './Question';
 
-function Attempt({baseURL}) {
+function Attempt({baseURL, user}) {
     const [quiz, setQuiz] = useState({
         name: "",
         questions: []
@@ -12,6 +12,8 @@ function Attempt({baseURL}) {
     const {id} = useParams()
     const questions = quiz.questions
     const currentQuestion = questions[questionIndex]
+    const finished = questionIndex === questions.length && questions.length !== 0
+    const grade = (score / questions.length) > 0.7
 
     const fetchQuiz = async () => {
         const data = await fetch(`${baseURL}/quizzes/${id}`)
@@ -32,6 +34,25 @@ function Attempt({baseURL}) {
         if (correct) {
             setScore(score => score + 1)
         }
+    }
+
+    function submitAttempt() {
+        const configObj = {
+            method: "POST",
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify({
+                number_correct: score,
+                "passed?": grade,
+                quiz_id: id,
+                user_id: user.id
+            })
+        }
+
+        fetch(`${baseURL}/attempts`, configObj)
+    }
+
+    if (finished) {
+        submitAttempt()
     }
 
     return (
