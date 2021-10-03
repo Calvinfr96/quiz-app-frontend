@@ -7,6 +7,7 @@ import QuizIndexPage from './components/QuizIndexPage';
 import Attempt from './components/Attempt';
 import { useState } from 'react';
 import LogInPage from './components/LogInPage';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   const baseURL = "http://127.0.0.1:3000"
@@ -19,6 +20,7 @@ function App() {
         <Switch>
           <Route path="/" exact><HomePage /></Route>
           <Route path="/login"><LogInPage setUser={setUser} baseURL={baseURL} /></Route>
+          <Route path="/profile"><ProfilePage currentUser={user} setCurrentUser={setUser} baseURL={baseURL} /></Route>
           <Route path="/quizzes" exact><QuizIndexPage baseURL={baseURL} /></Route>
           <Route path="/quizzes/:id"><Attempt baseURL={baseURL} /></Route>
         </Switch>
