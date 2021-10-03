@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route path="/" exact><HomePage /></Route>
           <Route path="/quizzes" exact><QuizIndexPage baseURL={baseURL} /></Route>
-          <Route path="/quizzes/:id"><Attempt /></Route>
+          <Route path="/quizzes/:id"><Attempt baseURL={baseURL} /></Route>
         </Switch>
       </div>
     </Router>
