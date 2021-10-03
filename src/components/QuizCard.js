@@ -1,10 +1,15 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function QuizCard({quiz}) {
+    const navStyle = {
+        color: 'blue',
+        "fontWeight": 'bold'
+    }
     return (
         <div>
            <h1>{quiz.name}</h1>
-           <button>Attempt</button> 
+           <Link style={navStyle} to={`/quiz/${quiz.id}`}>Attempt</Link> 
         </div>
     )
 }

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 function Nav() {
     const navStyle = {
         color: 'blue',
-        "font-weight": 'bold'
+        "fontWeight": 'bold'
     }
     return (
         <nav>
