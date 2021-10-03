@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import EditUserForm from './EditUserForm'
 
 function ProfilePage({currentUser, setCurrentUser, baseURL}) {
+    const [edit, setEdit] = useState(false)
     const [user, setUser] = useState({
         name: "",
         attempted_quizzes: []
@@ -9,7 +11,7 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
         if (currentUser) {
             fetchUser()
         }
-    }, [baseURL])
+    }, [baseURL, currentUser])
 
     const fetchUser = async () => {
         const data = await fetch(`${baseURL}/users/${currentUser.id}`)
@@ -32,9 +34,11 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
             <h1>{`Hello, ${user.name}`}</h1>
             <h2>Attempted Quizzes: </h2>
             <button className="delete-button" onClick={deleteUser}>Delete Profile</button>
+            <button className="edit-button" onClick={() => setEdit(!edit)}>Edit Profile</button>
             <div className = "attempt-container">
                 {attempts}
             </div>
+            {edit ? <EditUserForm baseURL={baseURL} currentUser={currentUser} setCurrentUser={setCurrentUser} /> : null}
         </div>
     ) : 
     (
