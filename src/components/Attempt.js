@@ -16,7 +16,15 @@ function Attempt({baseURL, user}) {
     const grade = (score / questions.length) > 0.7
 
     const fetchQuiz = async () => {
-        const data = await fetch(`${baseURL}/quizzes/${id}`)
+        const token =  localStorage.getItem('token')
+        const configObj = {
+            method: "GEt",
+            headers: {
+                "Content-Type":"application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        }
+        const data = await fetch(`${baseURL}/quizzes/${id}`, configObj)
         const quizData = await data.json()
         setQuiz(quizData)
     }
@@ -37,9 +45,13 @@ function Attempt({baseURL, user}) {
     }
 
     function submitAttempt() {
+        const token =  localStorage.getItem('token')
         const configObj = {
             method: "POST",
-            headers: {'Content-Type':'application/json'},
+            headers: {
+                'Content-Type':'application/json',
+                "Authorization": `Bearer ${token}`
+            },
             body: JSON.stringify({
                 number_correct: score,
                 "passed?": grade,
