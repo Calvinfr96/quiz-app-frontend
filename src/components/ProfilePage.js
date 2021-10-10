@@ -61,8 +61,14 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
         <h1>Please Log In</h1>
     )
 
+    useEffect (() => {
+        if (edit) {
+            document.getElementById("edit").scrollIntoView();
+        }
+    }, [edit])
+    
     return (
-        <div>
+        <div className="profile-container">
             {profilePage}
         </div>
     )

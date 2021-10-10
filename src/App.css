@@ -93,8 +93,32 @@ nav {
   font-weight: 650;
 }
 
+.profile-container {
+  height: auto;
+  background-color: #C738A0;
+}
+
 .profile-page {
   position: relative;
+  height: 100%;
+}
+
+.attempt-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  grid-row-gap: 20px;
+  justify-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.attempt-card {
+  font-size: 1em;
+  text-align: center;
+  background-color: #C7A738;
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .delete-button {
