@@ -5,9 +5,19 @@ function QuizIndexPage({baseURL, user}) {
     const [quizzes, setQuizzes] = useState([])
 
     const fetchQuizzes = async () => {
-        const data = await fetch(`${baseURL}/quizzes`)
+        const token =  localStorage.getItem('token')
+        const configObj = {
+            method: "GEt",
+            headers: {
+                "Content-Type":"application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        }
+        const data = await fetch(`${baseURL}/quizzes`, configObj)
         const quizData = await data.json()
-        setQuizzes(quizData)
+        if (!quizData.message) {
+            setQuizzes(quizData)
+        }
     }
 
     useEffect(() => {
