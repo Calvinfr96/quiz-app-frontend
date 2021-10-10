@@ -47,8 +47,49 @@ nav {
   color: #3858C7;
 }
 
+.login-page {
+  display: flex;
+  height: 60%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 20px;
+  padding-top: 5px;
+  background-color: #38C75F;
+}
+
+.login-form h2 {
+  text-align: center;
+}
+
+.login-form label {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.login-form label input {
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.login-form button {
+  align-self: center;
+  width: 70%;
+  border-radius: 10px;
+  padding: 5px 0px 5px 0px;
+  font-weight: 600
+}
+
 .error {
   color: red;
+  margin-top: 0px;
+  font-weight: 650;
 }
 
 .profile-page {

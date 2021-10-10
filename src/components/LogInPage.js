@@ -48,14 +48,19 @@ const login = async () => {
     }
     
     return (
-        <div>
-            <h1>Log In</h1>
-            <form onSubmit={handleSubmit}>
-                <h3>Username:</h3>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name..." required></input>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password..." required></input>
-                <button type="submit" className="submit">Log In</button>
+        <div className="login-page">
+            <form className="login-form" onSubmit={handleSubmit}>
+                <h2>Sign in to Quivia</h2>
+                <label>
+                    Username:
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name..." required></input>
+                </label>
+                <label>
+                    Password:  
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password..." required></input>
+                </label>
                 {error ? <h3 className="error">{error}</h3> : null}
+                <button type="submit" className="submit">Sign In</button>
             </form> 
         </div>
     )
