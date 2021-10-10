@@ -28,7 +28,15 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
     }
 
     const deleteUser = async () => {
-        await fetch(`${baseURL}/users/${currentUser.id}`, {method: "DELETE"})
+        const token =  localStorage.getItem('token') 
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type":"application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        }
+        await fetch(`${baseURL}/users/${currentUser.id}`, configObj)
         setCurrentUser(null)
     }
 
