@@ -70,8 +70,8 @@ function NewUserFrom({baseURL, setCurrentUser}) {
                     Confirm Password:
                     <input type="password" name="password_confirmation" value={formData.password_confirmation} onChange={handleChange} placeholder="Confirm Password..." required></input>
                 </label>
-                <button type="submit" className="submit">Sign Up</button>
                 {errors ? <h3 className="error">{`${errors}`}</h3> : null}
+                <button type="submit" className="submit">Sign Up</button>
            </form> 
         </div>
     )
