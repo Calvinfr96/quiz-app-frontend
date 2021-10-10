@@ -44,7 +44,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Nav logOut={logOut} />
+        <Nav user={user} logOut={logOut} />
         <Switch>
           <Route path="/" exact><HomePage /></Route>
           <Route path="/login"><LogInPage setUser={setUser} baseURL={baseURL} /></Route>
