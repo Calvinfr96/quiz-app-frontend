@@ -34,11 +34,17 @@ function App() {
   useEffect(() => {
     fetchUser()
   }, [])
+
+  function logOut() {
+    localStorage.removeItem('token')
+    setUser(null)
+  }
+
   return (
     <Router>
       <div className="App">
         <Header />
-        <Nav />
+        <Nav logOut={logOut} />
         <Switch>
           <Route path="/" exact><HomePage /></Route>
           <Route path="/login"><LogInPage setUser={setUser} baseURL={baseURL} /></Route>
