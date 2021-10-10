@@ -57,7 +57,7 @@ function NewUserFrom({baseURL, setCurrentUser}) {
     return (
         <div className="login-page">
            <form className="login-form" onSubmit={handleSubmit}>
-                <h2>Sign Up for Quivia</h2>
+                <h2>Sign up for Quivia</h2>
                 <label>
                     Username:
                     <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name..." required></input>
