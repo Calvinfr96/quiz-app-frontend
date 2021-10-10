@@ -16,7 +16,7 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
     const fetchUser = async () => {
         const token =  localStorage.getItem('token')
         const configObj = {
-            method: "GEt",
+            method: "GET",
             headers: {
                 "Content-Type":"application/json",
                 "Authorization": `Bearer ${token}`
