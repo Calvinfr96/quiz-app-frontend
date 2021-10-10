@@ -69,6 +69,7 @@ nav {
 }
 
 .login-form label {
+  align-self: end;
   margin-bottom: 20px;
   font-weight: 600;
 }

@@ -55,14 +55,22 @@ function NewUserFrom({baseURL, setCurrentUser}) {
     }
 
     return (
-        <div>
-           <h1>Create User Profile</h1>
-           <form onSubmit={handleSubmit}>
-                <h3>Name:</h3>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name..." required></input>
-                <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password..." required></input>
-                <input type="password" name="password_confirmation" value={formData.password_confirmation} onChange={handleChange} placeholder="Confirm Password..." required></input>
-                <button type="submit" className="submit">Add</button>
+        <div className="login-page">
+           <form className="login-form" onSubmit={handleSubmit}>
+                <h2>Sign Up for Quivia</h2>
+                <label>
+                    Username:
+                    <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name..." required></input>
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password..." required></input>
+                </label>
+                <label>
+                    Confirm Password:
+                    <input type="password" name="password_confirmation" value={formData.password_confirmation} onChange={handleChange} placeholder="Confirm Password..." required></input>
+                </label>
+                <button type="submit" className="submit">Sign Up</button>
                 {errors ? <h3 className="error">{`${errors}`}</h3> : null}
            </form> 
         </div>
