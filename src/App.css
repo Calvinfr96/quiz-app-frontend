@@ -1,3 +1,16 @@
+body {
+  background-color: #3858C7;
+  height: 95vh;
+}
+
+#root, .App {
+  height: 100%;
+}
+
+.header {
+  text-align: center;
+}
+
 nav {
   display: flex;
   justify-content: space-around;
@@ -12,6 +25,26 @@ nav {
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+
+.home-page {
+  display: flex;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-page-text {
+  text-align: center;
+  background-color: #38C75F;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: bold;
+  color: #A22E82;
+}
+
+.login-prompt {
+  color: #3858C7;
 }
 
 .error {
