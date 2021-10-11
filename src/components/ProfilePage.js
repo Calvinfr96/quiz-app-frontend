@@ -44,6 +44,8 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
         return <AttemptedQuiz key={attempt.id} attempt={attempt} />
     })
 
+    const message = attempts.length === 0 ? <h3>You haven't taken any quizzes yet</h3> : null
+
     const profilePage = currentUser ?
     (
         <div className="profile-page">
@@ -52,6 +54,7 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
             <button className="delete-button" onClick={deleteUser}>Delete Profile</button>
             <button className="edit-button" onClick={() => setEdit(!edit)}>Edit Profile</button>
             <div className = "attempt-container">
+                {message}
                 {attempts}
             </div>
             {edit ? <EditUserForm baseURL={baseURL} currentUser={currentUser} setCurrentUser={setCurrentUser} /> : null}

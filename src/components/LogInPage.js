@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 function LogInPage({setUser, baseURL}) {
     const [error, setError] = useState(null)
@@ -6,6 +7,7 @@ function LogInPage({setUser, baseURL}) {
         name: "",
         password: ""
     })
+    const history = useHistory()
 
 const login = async () => {
     const configObj = {
@@ -24,7 +26,8 @@ const login = async () => {
         setError(currentUser.error)
     } else {
         setError(null)
-        localStorage.setItem('token', currentUser.jwt) 
+        localStorage.setItem('token', currentUser.jwt)
+        history.push('/profile')
     }
 }
 
