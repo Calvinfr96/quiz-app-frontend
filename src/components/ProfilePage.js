@@ -3,10 +3,12 @@ import EditUserForm from './EditUserForm'
 
 function ProfilePage({currentUser, setCurrentUser, baseURL}) {
     const [edit, setEdit] = useState(false)
+    const [confirm, setConfirm] = useState(false)
     const [user, setUser] = useState({
         name: "",
         attempted_quizzes: []
     })
+    
     useEffect(() => {
         if (currentUser) {
             fetchUser()
@@ -45,14 +47,18 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
     })
 
     const message = attempts.length === 0 ? <h3>You haven't taken any quizzes yet</h3> : null
+    const buttionClass = confirm ? "cancel-delete" : "delete-button"
+    const buttonText = confirm ? "Cancel" : "Delete Profile"
+    const deleteButton = confirm ? <button className="confirm-delete" onClick={deleteUser}>Delete Profile</button> : null
 
     const profilePage = currentUser ?
     (
         <div className="profile-page">
             <h1>{`Hello, ${user.name}`}</h1>
             <h2>Attempted Quizzes: </h2>
-            <button className="delete-button" onClick={deleteUser}>Delete Profile</button>
-            <button className="edit-button" onClick={() => setEdit(!edit)}>Edit Profile</button>
+            <button className={buttionClass} onClick={() => setConfirm(!confirm)}>{buttonText}</button>
+            {deleteButton}
+            <button className="edit-button" onClick={() => setEdit(!edit)}>{edit ? "Cancel" : "Edit Profile"}</button>
             <div className = "attempt-container">
                 {message}
                 {attempts}
