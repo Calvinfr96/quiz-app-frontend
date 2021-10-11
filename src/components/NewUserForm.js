@@ -31,7 +31,6 @@ function NewUserFrom({baseURL, setCurrentUser}) {
 
         const data = await fetch(`${baseURL}/users`, configObj)
         const newUser = await data.json()
-        console.log(newUser)
         setCurrentUser(newUser.user)
 
         if (newUser.errors) {
