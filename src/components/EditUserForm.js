@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 function EditUserForm({baseURL, currentUser, setCurrentUser}) {
     const [formData, setFormData] = useState({
         name: ""
     })
     const [errors, setErrors] = useState(null)
+    const history = useHistory()
 
     function handleChange(event) {
         const name = event.target.name
@@ -33,6 +35,7 @@ function EditUserForm({baseURL, currentUser, setCurrentUser}) {
         const newUser = await data.json()
         if (!newUser.errors) {
             setCurrentUser(newUser)
+            history.go(0)
         }
         setErrors(newUser.errors)
     }
