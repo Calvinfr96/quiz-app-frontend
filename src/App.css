@@ -144,3 +144,55 @@ nav {
     border: 3px solid black;
     border-radius: 10px;
 }
+
+.quiz-index-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  grid-row-gap: 20px;
+  justify-items: center;
+  padding-bottom: 20px;
+  height: auto;
+  background-color: #38C75F;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.quiz-card {
+  background-color: #C738A0;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.quiz-link {
+  color: blue;
+  background-color: #C7A738;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  font-weight: 700
+}
+
+.attempt {
+  padding-bottom: 20px;
+  height: auto;
+  background-color: #38C75F;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.question h1, .question h2 {
+  align-self: flex-start;
+  margin-bottom: auto;
+}
+
+.question button {
+  margin-bottom: 15px;
+  min-width: 100px;
+}

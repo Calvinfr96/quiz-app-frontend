@@ -29,8 +29,7 @@ function QuizIndexPage({baseURL, user}) {
     })
 
     return (
-        <div>
-            <p>Welcome to the quiz index page</p>
+        <div className="quiz-index-page">
             {quizCards}
         </div>
     )

@@ -14,6 +14,7 @@ function Attempt({baseURL, user}) {
     const currentQuestion = questions[questionIndex]
     const finished = questionIndex === questions.length && questions.length !== 0
     const grade = (score / questions.length) > 0.7
+    const subtitle = `Question ${questionIndex+1} of ${questions.length}`
 
     const fetchQuiz = async () => {
         const token =  localStorage.getItem('token')
@@ -71,9 +72,9 @@ function Attempt({baseURL, user}) {
 
 
     return (
-        <div>
+        <div className="attempt">
             {currentQuestion ? (
-                <Question title={quiz.name} question={currentQuestion} answerQuestion={answerQuestion} />
+                <Question title={quiz.name} subtitle={subtitle} question={currentQuestion} answerQuestion={answerQuestion} />
             ) : (
                 <div>
                     <h1>Quiz Finished!</h1>

@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Question({title, question, answerQuestion}) {
-    function handleAsnwer(isCorrect, index) {
+function Question({title, subtitle, question, answerQuestion}) {
+    function handleAsnwer(isCorrect) {
         answerQuestion(isCorrect)
     }
     const answers = question.answers.map((answer, index) => {
@@ -9,9 +9,10 @@ function Question({title, question, answerQuestion}) {
         return <button key={answer} onClick={() => handleAsnwer(isCorrect)}>{answer}</button>
     })
     return (
-        <div>
+        <div className="question">
             <h1>{title}</h1>
-            <h2>{question.prompt}</h2>
+            <h2>{subtitle}</h2>
+            <h3>{question.prompt}</h3>
             {answers}
         </div>
     )
