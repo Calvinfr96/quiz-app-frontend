@@ -28,8 +28,11 @@ function QuizIndexPage({baseURL, user}) {
         return <QuizCard key={quiz.id} quiz={quiz} user={user} />
     })
 
+    const message = user ? null : <h1>Please Log In</h1>
+
     return (
         <div className="quiz-index-page">
+            {message}
             {quizCards}
         </div>
     )
