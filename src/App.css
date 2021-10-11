@@ -122,6 +122,10 @@ nav {
   padding: 1em;
 }
 
+#edit {
+  padding-bottom: 1em;
+}
+
 .delete-button {
   position: absolute;
   top: 10px;
