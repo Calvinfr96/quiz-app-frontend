@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {useHistory} from 'react-router-dom'
 
 function NewUserFrom({baseURL, setCurrentUser}) {
     const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ function NewUserFrom({baseURL, setCurrentUser}) {
         password_confirmation: ""
     })
     const [errors, setErrors] = useState(null)
+    const history = useHistory()
 
     function handleChange(event) {
         const name = event.target.name
@@ -40,7 +42,8 @@ function NewUserFrom({baseURL, setCurrentUser}) {
             }
         } else {
             setErrors(null)
-            localStorage.setItem('token', newUser.jwt) 
+            localStorage.setItem('token', newUser.jwt)
+            history.push('/quizzes') 
         }
     }
 
