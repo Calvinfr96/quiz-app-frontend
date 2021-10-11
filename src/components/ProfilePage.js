@@ -49,7 +49,7 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
     const message = attempts.length === 0 ? <h3>You haven't taken any quizzes yet</h3> : null
     const buttionClass = confirm ? "cancel-delete" : "delete-button"
     const buttonText = confirm ? "Cancel" : "Delete Profile"
-    const deleteButton = confirm ? <button className="confirm-delete" onClick={deleteUser}>Delete Profile</button> : null
+    const deleteButton = confirm ? <button className="confirm-delete" onClick={deleteUser}>Confirm Delete</button> : null
 
     const profilePage = currentUser ?
     (
