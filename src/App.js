@@ -46,7 +46,7 @@ function App() {
         <Header />
         <Nav user={user} logOut={logOut} />
         <Switch>
-          <Route path="/" exact><HomePage /></Route>
+          <Route path="/" exact><HomePage user={user} /></Route>
           <Route path="/login"><LogInPage setUser={setUser} baseURL={baseURL} /></Route>
           <Route path="/signup"><NewUserFrom baseURL={baseURL} setCurrentUser={setUser} /></Route>
           <Route path="/profile"><ProfilePage currentUser={user} setCurrentUser={setUser} baseURL={baseURL} /></Route>
