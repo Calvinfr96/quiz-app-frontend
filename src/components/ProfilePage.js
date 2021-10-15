@@ -52,34 +52,30 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
     const buttonText = confirm ? "Cancel" : "Delete Profile"
     const deleteButton = confirm ? <button className="confirm-delete" onClick={deleteUser}>Confirm Delete</button> : null
 
-    const profilePage = currentUser ?
-    (
-        <div className="profile-page">
-            <h1>{`Hello, ${user.name}`}</h1>
-            <h2>Attempted Quizzes: </h2>
-            <button className={buttionClass} onClick={() => setConfirm(!confirm)}>{buttonText}</button>
-            {deleteButton}
-            <button className="edit-button" onClick={() => setEdit(!edit)}>{edit ? "Cancel" : "Edit Profile"}</button>
-            <div className = "attempt-container">
-                {message}
-                {attempts}
-            </div>
-            {edit ? <EditUserForm baseURL={baseURL} currentUser={currentUser} setCurrentUser={setCurrentUser} /> : null}
-        </div>
-    ) : 
-    (
-        <Redirect to='/login' />
-    )
-
     useEffect (() => {
         if (edit) {
             document.getElementById("edit").scrollIntoView();
         }
     }, [edit])
+
+    if (!localStorage.getItem('token')) {
+        return <Redirect to='/login' />
+    }
     
     return (
         <div className="profile-container">
-            {profilePage}
+            <div className="profile-page">
+                <h1>{`Hello, ${user.name}`}</h1>
+                <h2>Attempted Quizzes: </h2>
+                <button className={buttionClass} onClick={() => setConfirm(!confirm)}>{buttonText}</button>
+                {deleteButton}
+                <button className="edit-button" onClick={() => setEdit(!edit)}>{edit ? "Cancel" : "Edit Profile"}</button>
+                <div className = "attempt-container">
+                    {message}
+                    {attempts}
+                </div>
+                {edit ? <EditUserForm baseURL={baseURL} currentUser={currentUser} setCurrentUser={setCurrentUser} /> : null}
+            </div>
         </div>
     )
 }

@@ -29,11 +29,12 @@ function QuizIndexPage({baseURL, user}) {
         return <QuizCard key={quiz.id} quiz={quiz} user={user} />
     })
 
-    const redirect = user ? null : <Redirect to='/login' />
+    if (!localStorage.getItem('token')) {
+        return <Redirect to='/login' />
+    }
 
     return (
         <div className="quiz-index-page">
-            {redirect}
             {quizCards}
         </div>
     )
