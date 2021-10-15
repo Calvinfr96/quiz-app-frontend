@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import EditUserForm from './EditUserForm'
 import {Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 function ProfilePage({currentUser, setCurrentUser, baseURL}) {
+    const history = useHistory()
     const [edit, setEdit] = useState(false)
     const [confirm, setConfirm] = useState(false)
     const [user, setUser] = useState({
@@ -41,6 +43,8 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
         }
         await fetch(`${baseURL}/users/${currentUser.id}`, configObj)
         setCurrentUser(null)
+        localStorage.removeItem('token')
+        history.push('/')
     }
 
     const attempts = user.attempted_quizzes.map(attempt => {
