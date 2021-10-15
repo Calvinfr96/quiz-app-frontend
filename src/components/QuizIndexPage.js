@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import QuizCard from './QuizCard'
+import {Redirect} from 'react-router-dom'
 
 function QuizIndexPage({baseURL, user}) {
     const [quizzes, setQuizzes] = useState([])
@@ -28,11 +29,11 @@ function QuizIndexPage({baseURL, user}) {
         return <QuizCard key={quiz.id} quiz={quiz} user={user} />
     })
 
-    const message = user ? null : <h1>Please Log In</h1>
+    const redirect = user ? null : <Redirect to='/login' />
 
     return (
         <div className="quiz-index-page">
-            {message}
+            {redirect}
             {quizCards}
         </div>
     )

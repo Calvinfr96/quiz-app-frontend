@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import EditUserForm from './EditUserForm'
+import {Redirect} from 'react-router-dom'
 
 function ProfilePage({currentUser, setCurrentUser, baseURL}) {
     const [edit, setEdit] = useState(false)
@@ -67,7 +68,7 @@ function ProfilePage({currentUser, setCurrentUser, baseURL}) {
         </div>
     ) : 
     (
-        <h1>Please Log In</h1>
+        <Redirect to='/login' />
     )
 
     useEffect (() => {
