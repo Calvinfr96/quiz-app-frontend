@@ -16,7 +16,7 @@ Once logged in, users can attempt a quiz by navigating to the Quizzes page:
 
 Quizzes consist of multiple choice questions with four possible answers:
 
-<img src="public/Quizzes_Page_Screenshot.JPG" align="center" />
+<img src="public/Quiz_Page_Screenshot.JPG" align="center" />
 
 After attempting a quiz, users can view all previous attempts by navigating to their profile page. Here, users can also change their username or delete their profile:
 
