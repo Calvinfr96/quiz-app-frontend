@@ -1,4 +1,5 @@
 # [Quivia Quiz App](https://quivia-quiz-app.netlify.app/)
+> [Backend Repo](https://github.com/Calvinfr96/quiz-app-backend)
 
 Quivia is a full stack, single-page web application built using React.js and Ruby on Rails.
 Routing is implemented using React Router and Authentication is implemented using JSON Web Tokens.
