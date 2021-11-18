@@ -28,4 +28,4 @@ In the future, I plan on adding the following features to the app:
 - Reset password from the profile page
 - Reset a forgotten password
 - Add user statistics to the profile page
--Add a leader board
+- Add a leader board
